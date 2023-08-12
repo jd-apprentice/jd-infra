@@ -2,6 +2,12 @@
 # AWS
 #------------------------------------------------------------------------------
 
+variable "aws_zone" {
+  description = "aws zone"
+  type        = string
+  default     = "us-east-1a"
+}
+
 variable "aws_region" {
   description = "aws region"
   type        = string
