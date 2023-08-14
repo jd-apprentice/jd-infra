@@ -1,0 +1,11 @@
+---
+- name: Update nginx
+  hosts: aws_development
+  become_user: root
+  become: yes
+  tasks:
+    - name: Update nginx
+      become: yes
+      apt: name=nginx state=latest
+    
+  ## TODO: Add nginx configuration

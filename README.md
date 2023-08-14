@@ -4,6 +4,8 @@ I'm migrating from digital ocean to AWS, so I'm using this repo to keep track of
 
 ## Work in progress 🧰
 
+![IMG](./design/Infra.png)
+
 My last braincell is working on this repo, so please be patient.
 
 ![IMG](https://media.tenor.com/DpgEL1ITpE4AAAAd/nanashi-mumei-loading.gif)
@@ -54,3 +56,4 @@ My last braincell is working on this repo, so please be patient.
 - [Nginx](https://www.nginx.com/)
 - [Grafana](https://grafana.com/)
 - [Bash](https://www.gnu.org/software/bash/)
+- [Excalidraw](https://excalidraw.com/)
