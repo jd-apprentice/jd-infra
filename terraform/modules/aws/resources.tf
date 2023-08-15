@@ -23,6 +23,14 @@ resource "aws_elb" "dyallab" {
     lb_protocol       = "http"
   }
 
+  listener {
+    instance_port     = 8000
+    instance_protocol = "http"
+    lb_port           = 443
+    lb_protocol       = "https"
+    ## I'm going to use this? verify ssl_certificate_id = var.aws_ssl_certificate_id
+  }
+
   health_check {
     healthy_threshold   = 2
     unhealthy_threshold = 2
@@ -42,6 +50,16 @@ resource "aws_elb" "dyallab" {
   }
 }
 
+resource "aws_route53_zone" "dyallab" {
+  name = "dyallab.software"
+  name_servers = [
+    "ns-2048.awsdns-64.com",
+    "ns-2049.awsdns-65.net",
+    "ns-2050.awsdns-66.org",
+    "ns-2051.awsdns-67.co.uk",
+  ]
+}
+
 resource "aws_route53_zone" "main" {
   name = "jonathan.com.ar"
   name_servers = [
@@ -49,6 +67,43 @@ resource "aws_route53_zone" "main" {
     "ns-2049.awsdns-65.net",
     "ns-2050.awsdns-66.org",
     "ns-2051.awsdns-67.co.uk",
+  ]
+}
+
+resource "aws_route53_record" "mx" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "dyallab.software"
+  type    = "MX"
+  ttl     = "14400"
+
+  records = [
+    "mx1.improvmx.com.",
+    "mx2.improvmx.com.",
+  ]
+}
+
+resource "aws_route53_record" "mx_txt" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "dyallab.software"
+  type    = "TXT"
+  ttl     = "3600"
+
+  records = [
+    "v=spf1 include:spf.improvmx.com ~all",
+  ]
+}
+
+resource "aws_route53_record" "ns" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "dyallab.software"
+  type    = "NS"
+  ttl     = "3600"
+
+  records = [
+    aws_route53_zone.dyallab.name_servers[0],
+    aws_route53_zone.dyallab.name_servers[1],
+    aws_route53_zone.dyallab.name_servers[2],
+    aws_route53_zone.dyallab.name_servers[3],
   ]
 }
 

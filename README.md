@@ -4,7 +4,7 @@ I'm migrating from digital ocean to AWS, so I'm using this repo to keep track of
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra.png)
+![IMG](./design/Infra_V2.png)
 
 My last braincell is working on this repo, so please be patient.
 
