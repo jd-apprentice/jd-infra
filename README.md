@@ -19,6 +19,8 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [ ] Mail forwarding
 - [ ] Domains
 
+In deep documentation about how everything went can be checked in [docs](./docs/README.md).
+
 ## Work in progress 🧰
 
 ![IMG](./design/Infra_V2.png)
