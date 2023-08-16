@@ -7,4 +7,12 @@ terraform {
   }
 }
 
-provider "docker" {}
+provider "docker" {
+  host = "npipe:////.//pipe//docker_engine"
+
+  registry_auth {
+    address  = "registry.hub.docker.com"
+    username = var.dockerhub_username
+    password = var.dockerhub_password
+  }
+}

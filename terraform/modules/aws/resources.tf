@@ -1,3 +1,5 @@
+#### Ref https://github.com/jd-apprentice/terraform-fundamentals/blob/master/project-2/main.tf
+
 #####
 # AWS
 #####
@@ -7,9 +9,110 @@ resource "aws_instance" "dyallab" {
   instance_type     = var.aws_instance_type
   availability_zone = var.aws_zone
 
+  network_interface {
+    device_index         = 0
+    network_interface_id = aws_network_interface.dyallab_network_interface.id
+  }
+
   tags = {
     Name = "dyallab"
   }
+}
+
+resource "aws_vpc" "dyallab_vpc" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "dyallab-vpc"
+  }
+}
+
+resource "aws_internet_gateway" "dyallab_gw" {
+  vpc_id = aws_vpc.dyallab_vpc.id
+
+  tags = {
+    Name = "dyallab-gw"
+  }
+}
+
+resource "aws_route_table" "dyallab_route_table" {
+  vpc_id = aws_vpc.dyallab_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.dyallab_gw.id
+  }
+
+  route {
+    ipv6_cidr_block = "::/0"
+    gateway_id      = aws_internet_gateway.dyallab_gw.id
+  }
+
+  tags = {
+    Name = "dyallab-route-table"
+  }
+
+}
+
+resource "aws_route_table_association" "dyallab_route_table_association" {
+  subnet_id      = aws_subnet.dyallab_subnet.id
+  route_table_id = aws_route_table.dyallab_route_table.id
+}
+
+resource "aws_subnet" "dyallab_subnet" {
+  vpc_id            = aws_vpc.dyallab_vpc.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = var.aws_zone
+
+  tags = {
+    Name = "dyallab-subnet"
+  }
+}
+
+resource "aws_security_group" "allow_web" {
+  name        = "allow_web"
+  description = "Allow web inbound traffic"
+  vpc_id      = aws_vpc.dyallab_vpc.id
+
+  ingress {
+    description = "Allow HTTP from VPC"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow HTTPS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow SSH from VPC"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "Allow all outbound traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_web_traffic"
+  }
+}
+
+resource "aws_network_interface" "dyallab_network_interface" {
+  subnet_id       = aws_subnet.dyallab_subnet.id
+  security_groups = [aws_security_group.allow_web.id]
 }
 
 resource "aws_elb" "dyallab" {

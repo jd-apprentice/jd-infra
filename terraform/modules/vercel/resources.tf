@@ -3,7 +3,7 @@
 #####
 
 resource "vercel_project" "portfolio" {
-  name      = "portfolio-next"
+  name      = "portfolio-next-terraform"
   framework = "nextjs"
   git_repository = {
     type = "github"

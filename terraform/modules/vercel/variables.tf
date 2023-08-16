@@ -9,3 +9,9 @@ variable "repository" {
   default     = "https://github.com/jd-apprentice/Portfolio-Next"
   description = "Repository to use for the project"
 }
+
+variable "vercel_token" {
+  type        = string
+  description = "Vercel token to use for the project"
+  sensitive   = true
+}

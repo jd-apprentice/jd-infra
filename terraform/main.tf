@@ -1,11 +1,7 @@
-# module "aws" {
-#   source = "./modules/aws"
-# }
+variable "vercel_token" {}
 
-# module "docker" {
-#   source = "./modules/docker"
-# }
+module "vercel" {
+  source = "./modules/vercel"
 
-# module "vercel" {
-#   source = "./modules/vercel"
-# }
+  vercel_token = var.vercel_token
+}

@@ -8,17 +8,17 @@ resource "docker_image" "nginx" {
 }
 
 resource "docker_image" "dolar_hoy" {
-  name         = "dolar-hoy-api:latest"
+  name         = "dyallo/dolar-hoy-api:latest"
   keep_locally = false
 }
 
 resource "docker_image" "waifuland_api" {
-  name         = "waifuland-api:latest"
+  name         = "dyallo/waifuland-api:latest"
   keep_locally = false
 }
 
 resource "docker_image" "waifuland_fe" {
-  name         = "waifuland-fe:latest"
+  name         = "dyallo/waifuland-fe:latest"
   keep_locally = false
 }
 

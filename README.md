@@ -1,6 +1,21 @@
 # jd-infra 🖥 
 
-I'm migrating from digital ocean to AWS, so I'm using this repo to keep track of my progress.
+I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep track of my progress.
+
+Why not amplify? Praise the sun, I mean, praise the free tier.
+
+## Status 📊
+
+- [x] Design infrastructure
+- [x] Script to run Terraform
+- [ ] Build Terraform modules
+- [ ] Build Ansible playbooks
+- [ ] Build Makefile
+- [ ] AWS EC2 Instead of Digital Ocean Droplets
+- [ ] Docker apps running on EC2
+- [ ] Vercel app
+- [ ] Grafana/New Relic
+- [ ] Lambda functions
 
 ## Work in progress 🧰
 
