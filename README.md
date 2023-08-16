@@ -13,9 +13,11 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [ ] Build Makefile
 - [ ] AWS EC2 Instead of Digital Ocean Droplets
 - [ ] Docker apps running on EC2
-- [ ] Vercel app
+- [x] Vercel app
 - [ ] Grafana/New Relic
 - [ ] Lambda functions
+- [ ] Mail forwarding
+- [ ] Domains
 
 ## Work in progress 🧰
 

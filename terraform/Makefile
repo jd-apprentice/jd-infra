@@ -1,2 +1,2 @@
 guided:
-	python3 exec.py
+	python3 main.py

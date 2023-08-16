@@ -1,0 +1,3 @@
+[submodule "terraform/modules/vercel/app"]
+	path = terraform/modules/vercel/app
+	url = git@github.com:jd-apprentice/Portfolio-Next.git

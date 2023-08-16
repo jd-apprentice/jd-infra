@@ -45,7 +45,7 @@ class Context:
     def perform_action(self, action: str, environment: str) -> None:
         self._strategy.execute(action, environment)
 
-if __name__ == "__exec__":
+if __name__ == "__main__":
     module = input("Enter module (docker, aws, vercel): ")
     environment = input("Enter environment (dev, prod): ")
     action = input("Enter action (plan, apply, destroy): ")
