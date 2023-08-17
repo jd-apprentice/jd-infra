@@ -73,6 +73,25 @@ sudo certbot delete --cert-name <my-domain>
 
 Also I had to remove the domain from the DNS configuration at the network panel over digital ocean and my domain provider which in this case it is `nic.ar`
 
+- [x] Mail forwarding
+
+Everything went okay after I moved from `digitalocean` network to `route53`, I had to add a MX record to the domain and that was it.
+
+Oh and for the NS records I had to add the priority in the same line like this:
+
+```
+
+records = [
+    "10 mx1.improvmx.com.",
+    "20 mx2.improvmx.com.",
+  ]
+
+```
+
+- [x] Blog
+
+I just had to move the `CNAME` to route53 and that was it.
+
 TL;DR
 
 Don't forget to:

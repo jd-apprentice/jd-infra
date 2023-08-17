@@ -204,7 +204,7 @@ resource "aws_route53_zone" "main" {
 #   ]
 # }
 
-resource "aws_route53_record" "ns" {
+resource "aws_route53_record" "a" {
   zone_id = aws_route53_zone.main.zone_id
   name    = "jonathan.com.ar"
   type    = "A"
@@ -228,36 +228,36 @@ resource "aws_route53_record" "ns" {
 #   }
 # }
 
-# resource "aws_route53_record" "forward" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "jonathan.com.ar"
-#   type    = "MX"
-#   ttl     = "14400"
+resource "aws_route53_record" "forward" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "jonathan.com.ar"
+  type    = "MX"
+  ttl     = "14400"
 
-#   records = [
-#     "mx1.improvmx.com.",
-#     "mx2.improvmx.com.",
-#   ]
-# }
+  records = [
+    "10 mx1.improvmx.com.",
+    "20 mx2.improvmx.com.",
+  ]
+}
 
-# resource "aws_route53_record" "forward_txt" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "jonathan.com.ar"
-#   type    = "TXT"
-#   ttl     = "3600"
+resource "aws_route53_record" "forward_txt" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "jonathan.com.ar"
+  type    = "TXT"
+  ttl     = "3600"
 
-#   records = [
-#     "v=spf1 include:spf.improvmx.com ~all",
-#   ]
-# }
+  records = [
+    "v=spf1 include:spf.improvmx.com ~all",
+  ]
+}
 
-# resource "aws_route53_record" "blog" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "blog.jonathan.com.ar"
-#   type    = "CNAME"
-#   ttl     = "43200"
+resource "aws_route53_record" "blog" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "blog.jonathan.com.ar"
+  type    = "CNAME"
+  ttl     = "43200"
 
-#   records = [
-#     "hashnode.network.",
-#   ]
-# }
+  records = [
+    "hashnode.network.",
+  ]
+}

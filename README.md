@@ -16,14 +16,15 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [x] Vercel app
 - [ ] Grafana/New Relic
 - [ ] Lambda functions
-- [ ] Mail forwarding
+- [x] Blog
+- [x] Mail forwarding
 - [ ] Domains
 
 In deep documentation about how everything went can be checked in [docs](./docs/README.md).
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra_V2.png)
+![IMG](./design/Infra_V3.png)
 
 My last braincell is working on this repo, so please be patient.
 
