@@ -21,18 +21,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Snyk to check configuration files for security issues
-        # Snyk can be used to break the build when it detects security issues.
-        # In this case we want to upload the issues to GitHub Code Scanning
         continue-on-error: true
         uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
-        # Scans the whole repository by default.
-        # Alternatively, add the path to the configuration file that you would like to test.
-        # For example `deployment.yaml` for a Kubernetes deployment manifest
-        # or `main.tf` for a Terraform configuration file
-        # with:
-          # file: your-file-to-test.yaml
+
+      - name: Snyk Code test
+        run: snyk code test --sarif > snyk-code.sarif || true
+
+      - name: Snyk IaC test and report
+        run: snyk iac test --report || true
+
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
