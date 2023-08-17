@@ -13,8 +13,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-# permissions:
-#   contents: read
+permissions: write-all
   
 jobs:
   snyk:
