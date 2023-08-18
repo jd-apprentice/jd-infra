@@ -7,46 +7,19 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 ## Status 📊
 
 - [x] Design infrastructure
-  - Start by planning and designing your infrastructure requirements before diving into implementation.
-
 - [x] Documentation
-  - Create documentation as you design, implement, and configure different components. This will help streamline the process and ensure clarity.
-
 - [x] Script to run Terraform
-  - Develop a script that automates the deployment of your infrastructure using Terraform.
-
 - [x] Vercel app
-  - Set up your Vercel app early since is the most important one.
-
 - [x] Mail forwarding
-  - Configure mail forwarding early to ensure that communication channels are established.
-
 - [x] Blog
-  - Since is only a CNAME do it early.
-
 - [x] Domains
-  - Once your infrastructure is in place, configure your domains to point to the relevant services.
-
 - [ ] Build Terraform modules
-  - Create modular Terraform configurations that define your infrastructure components. This step comes after the design phase.
-
 - [ ] Build Ansible playbooks
-  - Develop Ansible playbooks to configure and manage software on your instances. This step follows infrastructure provisioning.
-
 - [ ] Build Makefile
-  - Develop a Makefile to streamline and automate various tasks related to your project, such as building, testing, and deployment.
-
 - [ ] AWS EC2 Instead of Digital Ocean Droplets
-  - Migrate your infrastructure from Digital Ocean Droplets to AWS EC2 instances. This step can be quite involved and should come after building Terraform modules.
-
 - [ ] Docker apps running on EC2
-  - Containerize your applications and deploy them on the AWS EC2 instances using Docker.
-
 - [ ] Grafana/New Relic
-  - Set up monitoring and observability tools like Grafana or New Relic to keep track of your infrastructure's performance.
-
 - [ ] Lambda functions
-  - If applicable, develop and deploy AWS Lambda functions to handle specific tasks within your architecture.
 
 
 In deep documentation about how everything went can be checked in [docs](./docs/README.md).
@@ -58,7 +31,7 @@ Expecification about other things can be found in nested folders like
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra_V4.png)
+![IMG](./design/Infra_V5.png)
 
 My last braincell is working on this repo, so please be patient.
 
