@@ -153,56 +153,45 @@
 #   }
 # }
 
-# resource "aws_route53_zone" "dyallab" {
-#   name = "dyallab.software"
-#   name_servers = [
-#     "ns-2048.awsdns-64.com",
-#     "ns-2049.awsdns-65.net",
-#     "ns-2050.awsdns-66.org",
-#     "ns-2051.awsdns-67.co.uk",
-#   ]
-# }
+resource "aws_route53_zone" "dyallab" {
+  name = "dyallab.software"
+}
 
 resource "aws_route53_zone" "main" {
   name = "jonathan.com.ar"
 }
 
-# resource "aws_route53_record" "mx" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "dyallab.software"
-#   type    = "MX"
-#   ttl     = "14400"
+resource "aws_route53_record" "mx" {
+  zone_id = aws_route53_zone.dyallab.zone_id
+  name    = "dyallab.software"
+  type    = "MX"
+  ttl     = "14400"
 
-#   records = [
-#     "mx1.improvmx.com.",
-#     "mx2.improvmx.com.",
-#   ]
-# }
+  records = [
+    "10 mx1.improvmx.com.",
+    "20 mx2.improvmx.com.",
+  ]
+}
 
-# resource "aws_route53_record" "mx_txt" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "dyallab.software"
-#   type    = "TXT"
-#   ttl     = "3600"
+resource "aws_route53_record" "mx_txt" {
+  zone_id = aws_route53_zone.dyallab.zone_id
+  name    = "dyallab.software"
+  type    = "TXT"
+  ttl     = "3600"
 
-#   records = [
-#     "v=spf1 include:spf.improvmx.com ~all",
-#   ]
-# }
+  records = [
+    "v=spf1 include:spf.improvmx.com ~all",
+  ]
+}
 
-# resource "aws_route53_record" "ns" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "dyallab.software"
-#   type    = "NS"
-#   ttl     = "3600"
+resource "aws_route53_record" "ns" {
+  zone_id = aws_route53_zone.dyallab.zone_id
+  name    = "dyallab.software"
+  type    = "NS"
+  ttl     = "3600"
 
-#   records = [
-#     aws_route53_zone.dyallab.name_servers[0],
-#     aws_route53_zone.dyallab.name_servers[1],
-#     aws_route53_zone.dyallab.name_servers[2],
-#     aws_route53_zone.dyallab.name_servers[3],
-#   ]
-# }
+  records = ["143.244.169.211"]
+}
 
 resource "aws_route53_record" "a" {
   zone_id = aws_route53_zone.main.zone_id
@@ -215,18 +204,41 @@ resource "aws_route53_record" "a" {
   ]
 }
 
-# resource "aws_route53_record" "waifuland_api" {
-#   zone_id = aws_route53_zone.main.zone_id
-#   name    = "waifuland.jonathan.com.ar"
-#   type    = "A"
-#   ttl     = "3600"
+resource "aws_route53_record" "files" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "files.jonathan.com.ar"
+  type    = "A"
+  ttl     = "3600"
 
-#   alias {
-#     name                   = aws_instance.dyallab.public_ip
-#     zone_id                = aws_route53_zone.main.zone_id
-#     evaluate_target_health = true
-#   }
-# }
+  records = ["143.244.169.211"]
+}
+
+resource "aws_route53_record" "waifuland_api" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "waifuland.jonathan.com.ar"
+  type    = "A"
+  ttl     = "3600"
+
+  records = ["143.244.169.211"]
+}
+
+resource "aws_route53_record" "waifuland_fe" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "app.jonathan.com.ar"
+  type    = "A"
+  ttl     = "3600"
+
+  records = ["143.244.169.211"]
+}
+
+resource "aws_route53_record" "dolar" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "dolar.jonathan.com.ar"
+  type    = "A"
+  ttl     = "3600"
+
+  records = ["143.244.169.211"]
+}
 
 resource "aws_route53_record" "forward" {
   zone_id = aws_route53_zone.main.zone_id
@@ -259,5 +271,19 @@ resource "aws_route53_record" "blog" {
 
   records = [
     "hashnode.network.",
+  ]
+}
+
+resource "aws_route53_record" "dbn-tools-docs" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "dbn-tools.jonathan.com.ar"
+  type    = "A"
+  ttl     = "3600"
+
+  records = [
+    "185.199.108.153",
+    "185.199.109.153",
+    "185.199.110.153",
+    "185.199.111.153"
   ]
 }

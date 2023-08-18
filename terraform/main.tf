@@ -1,18 +1,18 @@
 ## Vercel
 
-variable "vercel_token" {}
-variable "domain" {
-  type        = string
-  default     = "jonathan.com.ar"
-  description = "Domain to be used in vercel"
-}
+# variable "vercel_token" {}
+# variable "domain" {
+#   type        = string
+#   default     = "jonathan.com.ar"
+#   description = "Domain to be used in vercel"
+# }
 
-module "vercel" {
-  source = "./modules/vercel"
+# module "vercel" {
+#   source = "./modules/vercel"
 
-  domain       = var.domain
-  vercel_token = var.vercel_token
-}
+#   domain       = var.domain
+#   vercel_token = var.vercel_token
+# }
 
 ## AWS
 

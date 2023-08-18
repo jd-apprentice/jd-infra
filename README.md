@@ -24,7 +24,7 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [x] Blog
   - Since is only a CNAME do it early.
 
-- [ ] Domains
+- [x] Domains
   - Once your infrastructure is in place, configure your domains to point to the relevant services.
 
 - [ ] Build Terraform modules

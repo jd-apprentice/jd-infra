@@ -1,3 +1,5 @@
+14/8/2023
+
 Hey! Here is a little detail about what went ok and what went wrong.
 
 Status so far
@@ -73,6 +75,8 @@ sudo certbot delete --cert-name <my-domain>
 
 Also I had to remove the domain from the DNS configuration at the network panel over digital ocean and my domain provider which in this case it is `nic.ar`
 
+15/8/2023
+
 - [x] Mail forwarding
 
 Everything went okay after I moved from `digitalocean` network to `route53`, I had to add a MX record to the domain and that was it.
@@ -91,6 +95,21 @@ records = [
 - [x] Blog
 
 I just had to move the `CNAME` to route53 and that was it.
+
+
+### Networking
+
+16/8/2023
+
+So networking in general I'm losing the only braincell I have remaining since i'm trying to have nic.ar to redirect jonathan.com.ar to both vercel (for the portfolio) and digital ocean for the remaining apps but I'm doing a mess (idk if this is possible) since the apps are being sent to vercel.
+
+I'll update once I have a solution for this.
+
+17/8/2023
+
+- [x] Domains
+
+So I've moved everything to route53, I had to add a few things to the terraform code, I needed a bit of help from people at the discord channel, to understand how DNS works, but I think I got it. If not i'll be back again tomorrow.
 
 TL;DR
 

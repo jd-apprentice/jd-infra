@@ -2,14 +2,13 @@
 
 - Nic
 - Route53
-- Digital Ocean
 - Vercel
 
 Nic
 
-![NIC](nic.png)
+![nic](nic.png)
 
-Digital Ocean 
+### Digital Ocean 
 
 DNS
 
@@ -23,13 +22,22 @@ ns3.digitalocean.com
 
 AWS Route 53
 
-![AWS](aws.png)
-
-Vercel
+### Vercel
 
 DNS
 
 ```
 ns1.vercel-dns.com
 ns2.vercel-dns.com
+```
+
+### AWS
+
+DNS
+
+```
+ns-1628.awsdns-11.co.uk
+ns-419.awsdns-52.com
+ns-674.awsdns-20.net
+ns-1090.awsdns-08.org
 ```
