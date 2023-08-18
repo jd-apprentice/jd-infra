@@ -58,7 +58,7 @@ Expecification about other things can be found in nested folders like
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra_V3.png)
+![IMG](./design/Infra_V4.png)
 
 My last braincell is working on this repo, so please be patient.
 
