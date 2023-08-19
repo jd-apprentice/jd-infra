@@ -39,17 +39,25 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "text": "GitHub Action build result: ${{ job.status }} :rocket:\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
+                    "text": ":star: *GitHub Action build result*: ${{ job.status }} :rocket:\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  },
+                  "accessory": {
+                    "type": "image",
+                    "image_url": "${{ job.status == 'failure' ? 'https://media.tenor.com/e5TDUiAGEowAAAAC/pipes-bursting.gif' : 'https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fitxnrmdtqpd81.png' }}",
+                    "alt_text": "Status"
+                  },
+                  "color": "${{ job.status == 'failure' ? '#FF5733' : '#36a64f' }}"
                 }
               ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+
