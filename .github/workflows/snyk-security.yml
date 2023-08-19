@@ -28,7 +28,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
           SNYK_RESULTS: ${{ steps.snyk.outputs.stdout }}
         with:
-          args: --severity-threshold=high
+          args: --severity-threshold=high --json
           
       
   send-message:
