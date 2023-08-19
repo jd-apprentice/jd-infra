@@ -67,7 +67,6 @@ jobs:
         run: echo "::set-output name=results::$(cat sarif-results/snyk.sarif)"
 
       - name: Send custom JSON data to Slack workflow
-        continue-on-error: true
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:

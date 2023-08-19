@@ -31,7 +31,7 @@ Expecification about other things can be found in nested folders like
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra_V5.png)
+![IMG](./design/Infra_V6.png)
 
 My last braincell is working on this repo, so please be patient.
 
