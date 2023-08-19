@@ -8,13 +8,14 @@ on:
 jobs:
   scan:
     name: gitleaks
-    id: scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - uses: gitleaks/gitleaks-action@v2
+        id: scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
