@@ -18,6 +18,8 @@ permissions: write-all
 jobs:
   snyk:
     runs-on: ubuntu-latest
+    outputs:
+      SNYK_RESULTS: ${{ steps.snyk.outputs.results }}
     steps:
       - uses: actions/checkout@v2
       - name: Run Snyk to check configuration files for security issues
@@ -26,9 +28,8 @@ jobs:
         uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
-          SNYK_RESULTS: ${{ steps.snyk.outputs.stdout }}
         with:
-          args: --severity-threshold=high --json-file-output=json
+          args: --severity-threshold=high --json-file-output=json >> "$GITHUB_OUTPUT"
       
   send-message:
     runs-on: ubuntu-latest
@@ -90,12 +91,13 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Snyk Results:*\n${{ jobs.snyk.outputs.SNYK_RESULTS }}"
+                      "text": "*Snyk Results:*\n${{ OUTPUT }}"
                     }
                   ]
                 }
               ]
             }
         env:
+          OUTPUT: ${{ needs.snyk.outputs.SNYK_RESULTS }}}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
