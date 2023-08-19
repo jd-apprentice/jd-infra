@@ -21,16 +21,20 @@ jobs:
     outputs:
       snyk_results: ${{ steps.snyk.outputs.results }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         id: snyk
-        uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          args: --severity-threshold=high --json-file-output=snyk.json
-        run: echo "results=$(/usr/bin/jq -c . < snyk.json)"
+        run: |
+          snyk iac test --severity-threshold=high --json-file-output=snyk.json
+          echo "results=$(jq -c . < snyk.json)"
       
   send-message:
     runs-on: ubuntu-latest
