@@ -32,8 +32,8 @@ jobs:
   send-message:
     runs-on: ubuntu-latest
     steps:
-      - uses: slackapi/slack-github-action@v1.24.0
       - name: Send GitHub Action trigger data to Slack workflow
+        uses: slackapi/slack-github-action@v1.24.0
         id: slack
         with:
           payload: |
