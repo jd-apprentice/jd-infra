@@ -91,7 +91,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Snyk Results:*\n${{ OUTPUT }}"
+                      "text": "*Snyk Results:*\n${{ steps.snyk.outputs.SNYK_RESULTS }}"
                     }
                   ]
                 }
