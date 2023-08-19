@@ -29,7 +29,13 @@ jobs:
           SNYK_RESULTS: ${{ steps.snyk.outputs.stdout }}
         with:
           args: --severity-threshold=high --json-file-output=json
-          
+
+  echo:
+    runs-on: ubuntu-latest
+    needs: snyk
+    steps:
+      - name: Echo Snyk Results
+        run: echo "${{ steps.snyk.outputs.SNYK_RESULTS }}"
       
   send-message:
     runs-on: ubuntu-latest
