@@ -39,7 +39,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          snyk iac test --severity-threshold=high --json-file-output=snyk.json
+          snyk iac test --severity-threshold=high --json
           echo "results=$(jq -c . < snyk.json)"
       
   send-message:
