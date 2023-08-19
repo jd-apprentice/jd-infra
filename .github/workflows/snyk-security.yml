@@ -22,8 +22,63 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
+        id: snyk
         uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
         with:
           args: --severity-threshold=high --report
+      
+      - uses: slackapi/slack-github-action@v1.24.0
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Snyk Infrastructure as Code Scan Results"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n${{ github.repository }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch:*\n${{ github.ref }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Commit:*\n${{ github.sha }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Author:*\n${{ github.actor }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Results:*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.snyk.outputs.results }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
