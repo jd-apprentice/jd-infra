@@ -39,8 +39,13 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          snyk iac test --severity-threshold=high --json
-          echo "results=$(jq -c . < snyk.json)"
+          snyk iac test --severity-threshold=high --sarif-file-output=snyk.sarif
+          echo "results=$(jq -c . < snyk.sarif)"
+        
+      - name: Upload result to Github Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
       
   send-message:
     runs-on: ubuntu-latest
