@@ -35,5 +35,46 @@ jobs:
       - name: Send GitHub Action trigger data to Slack workflow
         uses: slackapi/slack-github-action@v1.24.0
         id: slack
+        with:
+          payload: |
+            {
+              "text": "Snyk Infrastructure as Code scan results",
+              "attachments": [
+                {
+                  "text": "Snyk Infrastructure as Code scan results",
+                  "color": "#36a64f",
+                  "blocks": [
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Snyk Infrastructure as Code scan results*"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref }}\n*Workflow:* ${{ github.workflow }}\n*Action:* ${{ github.action }}\n*Event:* ${{ github.event_name }}\n*Commit:* ${{ github.sha }}\n*Author:* ${{ github.actor }}\n*Message:* ${{ github.event.head_commit.message }}\n*Link:* ${{ github.event.head_commit.url }}"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Snyk Infrastructure as Code scan results:*"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "${{ steps.snyk.outputs.results }}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
