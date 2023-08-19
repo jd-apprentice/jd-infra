@@ -40,17 +40,32 @@ jobs:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
         run: |
           snyk iac test --severity-threshold=high --sarif-file-output=snyk.sarif
-          echo "results=$(jq -c . < snyk.sarif)"
         
       - name: Upload result to Github Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: snyk.sarif
       
+      - name: Save SARIF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-scanning-results
+          path: snyk.sarif
+      
   send-message:
     runs-on: ubuntu-latest
     needs: snyk
     steps:
+      - name: Download SARIF artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: code-scanning-results
+          path: snyk.sarif
+      
+      - name: Extract Sarif Data
+        id: extract-sarif
+        run: echo "::set-output name=results::$(cat sarif-results/snyk.sarif)"
+
       - name: Send custom JSON data to Slack workflow
         continue-on-error: true
         id: slack
@@ -107,13 +122,12 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Snyk Results:*\n${{ steps.snyk.outputs.snyk_results }}"
+                      "text": "*Snyk Results:*\n${{ steps.extract-sarif.outputs.results }}"
                     }
                   ]
                 }
               ]
             }
         env:
-          OUTPUT: ${{ needs.snyk.outputs.snyk_results }}}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
