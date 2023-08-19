@@ -26,10 +26,10 @@ jobs:
         uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.TOKEN }}
+          SNYK_RESULTS: ${{ steps.snyk.outputs.stdout }}
         with:
           args: --severity-threshold=high
-        env:
-          SNYK_RESULTS: ${{ steps.snyk.outputs.stdout }}
+          
       
   send-message:
     runs-on: ubuntu-latest
