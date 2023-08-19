@@ -29,6 +29,9 @@ jobs:
         with:
           args: --severity-threshold=high --report
       
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
       - uses: slackapi/slack-github-action@v1.24.0
       - name: Send GitHub Action trigger data to Slack workflow
         id: slack
