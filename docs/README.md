@@ -111,6 +111,10 @@ I'll update once I have a solution for this.
 
 So I've moved everything to route53, I had to add a few things to the terraform code, I needed a bit of help from people at the discord channel, to understand how DNS works, but I think I got it. If not i'll be back again tomorrow.
 
+21/8/2023
+
+I've removed Vercel from `nic.ar` since i'm going to resolve everything with route53. From route53 I'm going to create an `A` record for the Vercel app and a `CNAME` for the blog.
+
 TL;DR
 
 Don't forget to:
