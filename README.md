@@ -13,10 +13,11 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [x] Mail forwarding
 - [x] Blog
 - [x] Domains
-- [ ] Build Terraform modules
+- [x] AWS EC2 Running
+- [x] Build Terraform modules
+- [x] Build Makefile
+- [ ] SSH access to EC2 / Session Manager
 - [ ] Build Ansible playbooks
-- [ ] Build Makefile
-- [ ] AWS EC2 Instead of Digital Ocean Droplets
 - [ ] Docker apps running on EC2
 - [ ] Grafana/New Relic
 - [ ] Lambda functions
