@@ -1,3 +1,4 @@
-# output "instance_public_ip" {
-#   value = aws_instance.dyallab.public_ip
-# }
+output "instance_public_dns" {
+  value       = aws_instance.dyallab.public_dns
+  description = "Public DNS of the instance"
+}

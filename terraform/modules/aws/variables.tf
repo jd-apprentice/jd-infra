@@ -40,8 +40,14 @@ variable "aws_instance_type" {
   default     = "t2.micro"
 }
 
-variable "public_ssh_key" {
+variable "aws_public_ssh_key" {
   description = "ssh key path"
   type        = string
   default     = ""
+}
+
+variable "aws_key_name" {
+  description = "ssh key name"
+  type        = string
+  default     = "jonathan@jonathan"
 }

@@ -1,6 +1,6 @@
 ---
 - name: Configure cronjobs
-  hosts: aws_development
+  hosts: aws_server
   tasks:
     - name: Renovation of SSL certificates every 2 months
       cron:

@@ -5,55 +5,81 @@
 #####
 
 resource "aws_instance" "dyallab" {
-  ami               = var.aws_ami
-  instance_type     = var.aws_instance_type
-  availability_zone = var.aws_zone
+  ami                         = var.aws_ami
+  instance_type               = var.aws_instance_type
+  availability_zone           = var.aws_zone
+  subnet_id                   = aws_subnet.dyallab-subnet.id
+  key_name                    = var.aws_key_name
+  associate_public_ip_address = true
 
-  network_interface {
-    device_index         = 0
-    network_interface_id = aws_network_interface.dyallab_network_interface.id
-  }
+  security_groups = [
+    aws_security_group.allow_web.id,
+  ]
 
   tags = {
     Name = "dyallab"
   }
 }
 
-resource "aws_elb" "dyallab" {
-  name               = "dyallab"
-  availability_zones = [var.aws_zone]
+resource "aws_key_pair" "dyallab" {
+  public_key = file(var.aws_public_ssh_key)
+}
 
-  listener {
-    instance_port     = 8000
-    instance_protocol = "http"
-    lb_port           = 80
-    lb_protocol       = "http"
-  }
+data "aws_vpc" "default" {
+  default = true
+}
 
-  listener {
-    instance_port     = 8000
-    instance_protocol = "http"
-    lb_port           = 443
-    lb_protocol       = "https"
-    ## I'm going to use this? verify ssl_certificate_id = var.aws_ssl_certificate_id
-  }
-
-  health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    target              = "HTTP:8000/"
-    interval            = 30
-  }
-
-  instances                   = [aws_instance.dyallab.id]
-  cross_zone_load_balancing   = true
-  idle_timeout                = 400
-  connection_draining         = true
-  connection_draining_timeout = 400
+resource "aws_subnet" "dyallab-subnet" {
+  vpc_id                  = data.aws_vpc.default.id
+  availability_zone       = var.aws_zone
+  cidr_block              = "172.31.0.0/24"
+  map_public_ip_on_launch = true
 
   tags = {
-    Name = "dyallab"
+    Name = "dyallab-subnet"
+  }
+}
+
+resource "aws_security_group" "allow_web" {
+  name        = "allow_web"
+  description = "Allow web inbound traffic"
+  vpc_id      = data.aws_vpc.default.id
+
+  // For everyone to access the web server
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  // To allow SSH access to the web server
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1" // This means any protocol
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_web_traffic"
   }
 }
 

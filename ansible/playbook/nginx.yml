@@ -1,6 +1,6 @@
 ---
 - name: Update nginx
-  hosts: aws_development
+  hosts: aws_server
   become_user: root
   become: yes
   tasks:

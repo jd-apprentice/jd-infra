@@ -24,14 +24,20 @@ variable "aws_region" {
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
-
+variable "aws_public_ssh_key" {}
 
 module "aws" {
   source = "./modules/aws"
 
-  aws_region     = var.aws_region
-  aws_access_key = var.aws_access_key
-  aws_secret_key = var.aws_secret_key
+  aws_region         = var.aws_region
+  aws_access_key     = var.aws_access_key
+  aws_secret_key     = var.aws_secret_key
+  aws_public_ssh_key = var.aws_public_ssh_key
+}
+
+output "instance_public_dns" {
+  value       = module.aws.instance_public_dns
+  description = "Public DNS of the instance"
 }
 
 ## Docker
