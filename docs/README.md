@@ -115,6 +115,10 @@ So I've moved everything to route53, I had to add a few things to the terraform 
 
 I've removed Vercel from `nic.ar` since i'm going to resolve everything with route53. From route53 I'm going to create an `A` record for the Vercel app and a `CNAME` for the blog.
 
+27/8/2023
+
+Everything is working perfectly, I'm continuing with the rest of the tasks.
+
 TL;DR
 
 Don't forget to:

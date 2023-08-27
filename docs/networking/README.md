@@ -1,43 +1,12 @@
 # Work in progress - Networking 🧲
 
-- Nic
-- Route53
-- Vercel
+Update 27/08/2023: Everything is working perfectly
 
-Nic
+Right now everything from nic.ar is being delegated to Route53, and from there to Vercel or DigitalOcean.
 
-![nic](nic.png)
+Now that I understand how DNS works, I don't break everything every time I touch something.
 
-### Digital Ocean 
+### Route 53
 
-DNS
-
-```
-ns1.digitalocean.com
-ns2.digitalocean.com
-ns3.digitalocean.com
-```
-
-![DO](digital_ocean.png)
-
-AWS Route 53
-
-### Vercel
-
-DNS
-
-```
-ns1.vercel-dns.com
-ns2.vercel-dns.com
-```
-
-### AWS
-
-DNS
-
-```
-ns-1628.awsdns-11.co.uk
-ns-419.awsdns-52.com
-ns-674.awsdns-20.net
-ns-1090.awsdns-08.org
-```
+![Route53](image.png)
+![Table](image-2.png)
