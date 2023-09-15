@@ -1,0 +1,5 @@
+*.md linguist-detectable=true
+*.yml linguist-detectable=true
+*.yaml linguist-detectable=true
+README.md linguist-detectable=true
+readme.md linguist-detectable=true
