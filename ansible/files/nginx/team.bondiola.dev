@@ -1,0 +1,11 @@
+server {
+
+        server_name team.bondiola.dev;
+        root /mnt/public_files/bondiola;
+
+        location / {
+                autoindex on;
+                try_files $uri $uri/ =404;
+        }
+
+}

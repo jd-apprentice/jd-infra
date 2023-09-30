@@ -7,6 +7,9 @@ init:
 
 upgrade:
 	cd terraform && terraform init -upgrade
+
+migrate:
+	cd terraform && terraform init -migrate-state
 	
 start:
 	cd terraform && terraform $(action) -var-file="config/$(environment).tfvars" -compact-warnings

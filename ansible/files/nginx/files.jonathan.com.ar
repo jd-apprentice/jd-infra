@@ -1,0 +1,11 @@
+server {
+
+	server_name files.jonathan.com.ar;
+	root /mnt/public_files/files;
+	
+	location / {
+		autoindex on;
+		try_files $uri $uri/ =404;
+	}
+
+}

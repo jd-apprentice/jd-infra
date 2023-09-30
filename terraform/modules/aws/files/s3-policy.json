@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1618512345678",
+    "Statement": [
+        {
+            "Sid": "Stmt1618512345678",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::s3-dyallab/*"
+        }
+    ]
+}

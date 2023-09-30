@@ -49,5 +49,5 @@ variable "aws_public_ssh_key" {
 variable "aws_key_name" {
   description = "ssh key name"
   type        = string
-  default     = "jonathan@jonathan"
+  default     = ""
 }

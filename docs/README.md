@@ -119,6 +119,8 @@ I've removed Vercel from `nic.ar` since i'm going to resolve everything with rou
 
 Everything is working perfectly, I'm continuing with the rest of the tasks.
 
+So about the connection to the EC2 i'm wondering if use SSH or Session Manager, i'm going to take a moment and evaluatle which is better for my case.
+
 15/9/2023
 
 Doing ok! I've delayed a few things since the most important services/apps are already working so no rush, the good part is that everything is now stable

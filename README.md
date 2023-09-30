@@ -16,10 +16,13 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [x] AWS EC2 Running
 - [x] Build Terraform modules
 - [x] Build Makefile
-- [ ] SSH access to EC2 / Session Manager
-- [ ] Build Ansible playbooks
 - [ ] Docker apps running on EC2
+- [ ] Redirrect traffic through Cloudflare
+- [ ] Build Ansible playbooks
 - [ ] Grafana/New Relic
+- [ ] Use Nginx Proxy Manager
+- [ ] Use Watchtower
+- [ ] SSH access to EC2 / Session Manager
 - [ ] Lambda functions
 
 In deep documentation about how everything went can be checked in [docs](./docs/README.md).
