@@ -22,7 +22,6 @@ Why not amplify? Praise the sun, I mean, praise the free tier.
 - [ ] Grafana/New Relic
 - [ ] Lambda functions
 
-
 In deep documentation about how everything went can be checked in [docs](./docs/README.md).
 
 Expecification about other things can be found in nested folders like
@@ -32,7 +31,7 @@ Expecification about other things can be found in nested folders like
 
 ## Work in progress 🧰
 
-![IMG](./design/Infra_V6.png)
+![IMG](./design/New_ARQ.png)
 
 My last braincell is working on this repo, so please be patient.
 
