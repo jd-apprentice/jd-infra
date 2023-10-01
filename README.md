@@ -37,7 +37,7 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 
 ## Work in progress 🧰
 
-![IMG](./design/New_ARQ_2.png)
+![IMG](./design/New_ARQ_3.png)
 
 ## Documentation 📝
 
