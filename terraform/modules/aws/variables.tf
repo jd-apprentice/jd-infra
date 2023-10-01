@@ -2,6 +2,13 @@
 # AWS
 #------------------------------------------------------------------------------
 
+variable "allowed_ip" {
+  description = "allowed ip"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
 variable "aws_zone" {
   description = "aws zone"
   type        = string

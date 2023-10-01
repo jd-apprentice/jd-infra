@@ -1,0 +1,35 @@
+---
+- name: install docker
+  hosts: nginx_proxy_manager
+  become: yes
+
+  tasks:
+    - name: install dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        update_cache: yes
+    
+    - name: add key repository
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    
+    - name: add docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+        filename: docker
+    
+    - name: install docker ce
+      apt:
+        name: docker-ce
+        state: latest
+    
+    - name: service docker
+      ansible.builtin.service:
+        name: docker
+        state: started

@@ -30,8 +30,9 @@ output:
 
 PRIVATE_KEY_PATH ?= ~/.ssh/id_rsa
 
+.PHONY: playbook
 playbook:
-	ansible-playbook ansible/playbook/$(playbook) -i ansible/inventory
+	ansible-playbook ansible/playbook/$(playbook).yml -i ansible/inventory
 
 ## Utils
 

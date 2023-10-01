@@ -1,0 +1,16 @@
+---
+- name: add docker group
+  hosts: nginx_proxy_manager
+  become: yes
+
+  tasks:
+    - name: add docker group
+      group:
+        name: docker
+        state: present
+
+    - name: add ubuntu to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes

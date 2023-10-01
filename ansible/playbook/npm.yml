@@ -1,0 +1,22 @@
+---
+- name: nginx proxy manager docker compose
+  hosts: nginx_proxy_manager
+  become: yes
+
+  tasks:
+
+    - name: create /www/npm folder
+      file:
+        path: /home/ubuntu/www/npm
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: copy npm.docker-compose.yml
+      copy:
+        src: ../files/docker/npm.docker-compose.yml
+        dest: /home/ubuntu/www/npm/npm.docker-compose.yml
+
+    - name: execute compose
+      command: docker-compose -f /home/ubuntu/www/npm/npm.docker-compose.yml up -d

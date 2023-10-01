@@ -1,7 +1,7 @@
 ---
-- name: Update nginx
+- name: install nginx proxy manager
   hosts: aws_server
-  become_user: root
+  become_user: ubuntu
   become: yes
   tasks:
     - name: Update nginx

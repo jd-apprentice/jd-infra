@@ -1,6 +1,6 @@
 ---
 - name: Update system and install packages
-  hosts: aws_server
+  hosts: nginx_proxy_manager
   become_user: root
   become: yes
   tasks:
@@ -12,23 +12,10 @@
       become: yes
       apt: upgrade=dist
 
-    - name: Install packages
-      become: yes
-      apt: name={{ item }} state=latest
-      with_items:
-        - python3-pip
-        - git
-
     - name: Run autoclean
       become: yes
       apt: autoclean=yes
-    
-    - name: Run clean
-      become: yes
-      apt: clean=yes
       
     - name: Run autoremove
       become: yes
       apt: autoremove=yes
-    
-  ## TODO: Rest of the tasks

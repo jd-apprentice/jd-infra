@@ -23,12 +23,14 @@ variable "aws_region" {
 }
 
 variable "aws_public_ssh_key" {}
+variable "allowed_ip" {}
 
 module "aws" {
   source = "./modules/aws"
 
   aws_region         = var.aws_region
   aws_public_ssh_key = var.aws_public_ssh_key
+  allowed_ip         = var.allowed_ip
 }
 
 output "instance_public_dns" {
