@@ -125,6 +125,16 @@ So about the connection to the EC2 i'm wondering if use SSH or Session Manager, 
 
 Doing ok! I've delayed a few things since the most important services/apps are already working so no rush, the good part is that everything is now stable
 
+01/10/2023
+
+I've started the migration of the remaining apps to AWS, added a few things that were not part of the initial plan but that I found interesting to add and wanted to try.
+
+- Nginx Proxy Manager
+- Watchtower
+- Cloudflare
+
+Updated terraform code and added a few things to the ansible playbook.
+
 TL;DR
 
 Don't forget to:
