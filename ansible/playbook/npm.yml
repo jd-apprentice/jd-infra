@@ -1,10 +1,8 @@
 ---
 - name: nginx proxy manager docker compose
   hosts: nginx_proxy_manager
-  become: yes
-
+  gather_facts: false
   tasks:
-
     - name: create /www/npm folder
       file:
         path: /home/ubuntu/www/npm
@@ -18,5 +16,7 @@
         src: ../files/docker/npm.docker-compose.yml
         dest: /home/ubuntu/www/npm/npm.docker-compose.yml
 
-    - name: execute compose
+    - name: run docker compose
       command: docker-compose -f /home/ubuntu/www/npm/npm.docker-compose.yml up -d
+      args:
+        chdir: /home/ubuntu/www/npm

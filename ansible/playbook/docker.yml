@@ -28,6 +28,11 @@
       apt:
         name: docker-ce
         state: latest
+
+    - name: install docker compose
+      apt:
+        name: docker-compose-plugin
+        state: latest
     
     - name: service docker
       ansible.builtin.service:

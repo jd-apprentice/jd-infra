@@ -42,20 +42,6 @@ resource "aws_key_pair" "dyallab" {
   public_key = file(var.aws_public_ssh_key)
 }
 
-resource "aws_acm_certificate" "nginx" {
-  domain_name       = "proxy.jonathan.com.ar"
-  validation_method = "EMAIL"
-
-  validation_option {
-    domain_name       = "proxy.jonathan.com.ar"
-    validation_domain = "jonathan.com.ar"
-  }
-
-  tags = {
-    Name = "nginx"
-  }
-}
-
 data "aws_vpc" "default" {
   default = true
 }
