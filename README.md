@@ -34,6 +34,7 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 - [ ] Grafana/New Relic
 - [ ] Use Watchtower
 - [ ] Lambda functions
+- [ ] Add cloudflare as proxy
 
 ## Work in progress 🧰
 
