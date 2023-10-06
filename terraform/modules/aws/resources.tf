@@ -148,110 +148,62 @@ resource "aws_security_group" "allow_web" {
   }
 }
 
-resource "aws_route53_zone" "main" {
-  name = "jonathan.com.ar"
-}
+# resource "aws_route53_zone" "main" {
+#   name = "jonathan.com.ar"
+# }
 
-resource "aws_route53_record" "nginx_proxy_manager" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "proxy.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
+# resource "aws_route53_record" "nginx_proxy_manager" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "proxy.jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "3600"
 
-  records = [aws_instance.nginx_proxy_manager.public_ip]
-}
+#   records = [aws_instance.nginx_proxy_manager.public_ip]
+# }
 
-resource "aws_route53_record" "a" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "jonathan.com.ar"
-  type    = "A"
-  ttl     = "172800"
+# resource "aws_route53_record" "a" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "172800"
 
-  records = [
-    "76.76.21.21",
-  ]
-}
+#   records = [
+#     "76.76.21.21",
+#   ]
+# }
 
-resource "aws_route53_record" "files" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "files.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
+# resource "aws_route53_record" "files" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "files.jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "3600"
 
-  records = ["143.244.169.211"]
-}
+#   records = ["143.244.169.211"]
+# }
 
-resource "aws_route53_record" "waifuland_api" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "waifuland.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
+# resource "aws_route53_record" "waifuland_api" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "waifuland.jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "3600"
 
-  records = ["143.244.169.211"]
-}
+#   records = ["143.244.169.211"]
+# }
 
-resource "aws_route53_record" "waifuland_fe" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "app.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
+# resource "aws_route53_record" "waifuland_fe" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "app.jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "3600"
 
-  records = ["143.244.169.211"]
-}
+#   records = ["143.244.169.211"]
+# }
 
-resource "aws_route53_record" "dolar" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "dolar.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
+# resource "aws_route53_record" "dolar" {
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "dolar.jonathan.com.ar"
+#   type    = "A"
+#   ttl     = "3600"
 
-  records = ["143.244.169.211"]
-}
-
-resource "aws_route53_record" "forward" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "jonathan.com.ar"
-  type    = "MX"
-  ttl     = "14400"
-
-  records = [
-    "10 mx1.improvmx.com.",
-    "20 mx2.improvmx.com.",
-  ]
-}
-
-resource "aws_route53_record" "forward_txt" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "jonathan.com.ar"
-  type    = "TXT"
-  ttl     = "3600"
-
-  records = [
-    "v=spf1 include:spf.improvmx.com ~all",
-  ]
-}
-
-resource "aws_route53_record" "blog" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "blog.jonathan.com.ar"
-  type    = "CNAME"
-  ttl     = "43200"
-
-  records = [
-    "hashnode.network.",
-  ]
-}
-
-resource "aws_route53_record" "dbn-tools-docs" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "dbn-tools.jonathan.com.ar"
-  type    = "A"
-  ttl     = "3600"
-
-  records = [
-    "185.199.108.153",
-    "185.199.109.153",
-    "185.199.110.153",
-    "185.199.111.153"
-  ]
-}
+#   records = ["143.244.169.211"]
+# }

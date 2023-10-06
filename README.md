@@ -29,12 +29,11 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 - [x] Build Ansible playbooks
 - [x] Use Nginx Proxy Manager
 - [x] SSH access to EC2 / Session Manager
+- [x] Add cloudflare as proxy
 - [ ] Docker apps running on EC2
-- [ ] Redirrect traffic through Cloudflare
 - [ ] Grafana/New Relic
 - [ ] Use Watchtower
 - [ ] Lambda functions
-- [ ] Add cloudflare as proxy
 
 ## Work in progress 🧰
 

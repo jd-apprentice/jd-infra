@@ -14,6 +14,20 @@
 #   vercel_token = var.vercel_token
 # }
 
+## Cloudflare
+
+# variable "cloudflare_api_token" {}
+# variable "cloudflare_zone_id" {}
+# variable "nginx_proxy_manager_ip" {}
+
+# module "cloudflare" {
+#   source = "./modules/cloudflare"
+
+#   cloudflare_api_token   = var.cloudflare_api_token
+#   cloudflare_zone_id     = var.cloudflare_zone_id
+#   nginx_proxy_manager_ip = var.nginx_proxy_manager_ip
+# }
+
 ## AWS
 
 variable "aws_region" {

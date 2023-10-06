@@ -135,6 +135,12 @@ I've started the migration of the remaining apps to AWS, added a few things that
 
 Updated terraform code and added a few things to the ansible playbook.
 
+6/10/2023
+
+I've updated to proxy everything through nginx proxy manager, I've added a few things to the terraform code and the ansible playbook.
+
+Expect things to be broken for a few days or more since I'm busy with other stuff haha.
+
 TL;DR
 
 Don't forget to:

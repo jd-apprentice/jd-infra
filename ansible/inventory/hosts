@@ -1,8 +1,6 @@
 [aws_server]
-ec2-44-206-236-251.compute-1.amazonaws.com
 
 [nginx_proxy_manager]
-ec2-3-86-229-152.compute-1.amazonaws.com
 
 [aws_server:vars]
 ansible_ssh_user=ubuntu
