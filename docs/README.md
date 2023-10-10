@@ -162,6 +162,8 @@ Route53 is completely empty.
 
 Read about certbot and revoking [HERE](https://letsencrypt.org/docs/revoking/)
 
+So i'm also going to try the email routing with cloudflare, records are updated in terraform resources.
+
 TL;DR
 
 Don't forget to:

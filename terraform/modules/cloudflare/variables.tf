@@ -18,3 +18,10 @@ variable "cloudflare_api_token" {
   default     = ""
   sensitive   = true
 }
+
+variable "vercel_ip" {
+  description = "Vercel IP"
+  type        = string
+  default     = "76.76.21.21"
+  sensitive   = false
+}
