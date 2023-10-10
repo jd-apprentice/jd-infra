@@ -141,6 +141,27 @@ I've updated to proxy everything through nginx proxy manager, I've added a few t
 
 Expect things to be broken for a few days or more since I'm busy with other stuff haha.
 
+9/10/2023
+
+So i've migrated more services (app, waifuland, dolar) which now are proxied by cloudflare and nginx proxy manager, I've added a few things to the terraform code and the ansible playbook.
+
+Also removed certificates from the old instance and nginx configuration files.
+
+Updated the redirect to `files.jonathan.com.ar`
+
+Remaining apps in the old instance:
+
+- files.jonathan.com.ar
+- team.bondiola.dev
+
+Cloudflare looks like  this right now:
+
+![IMG](https://i.imgur.com/p2MNHfu.png)
+
+Route53 is completely empty.
+
+Read about certbot and revoking [HERE](https://letsencrypt.org/docs/revoking/)
+
 TL;DR
 
 Don't forget to:
