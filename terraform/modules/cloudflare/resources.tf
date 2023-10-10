@@ -1,7 +1,41 @@
+################################################## Inside Nginx Proxy Manager
 # resource "cloudflare_record" "npm" {
 #   zone_id = var.cloudflare_zone_id
-#   name    = "*"
+#   name    = "dns.jonathan.com.ar"
 #   value   = var.nginx_proxy_manager_ip
+#   type    = "A"
+#   ttl     = 3600
+# }
+
+# resource "cloudflare_record" "be_waifuland" {
+#   zone_id = var.cloudflare_zone_id
+#   name    = "api.waifuland.jonathan.com.ar"
+#   value   = var.nginx_proxy_manager_ip
+#   type    = "A"
+#   ttl     = 3600
+# }
+
+# resource "cloudflare_record" "fe_waifulando" {
+#   zone_id = var.cloudflare_zone_id
+#   name    = "waifuland.jonathan.com.ar"
+#   value   = var.nginx_proxy_manager_ip
+#   type    = "A"
+#   ttl     = 3600
+# }
+
+# resource "cloudflare_record" "dolar" {
+#   zone_id = var.cloudflare_zone_id
+#   name    = "dolar.jonathan.com.ar"
+#   value   = var.nginx_proxy_manager_ip
+#   type    = "A"
+#   ttl     = 3600
+# }
+##################################################
+
+# resource "cloudflare_record" "portfolio" {
+#   zone_id = var.cloudflare_zone_id
+#   name    = "jonathan.com.ar"
+#   value   = var.vercel_ip
 #   type    = "A"
 #   ttl     = 3600
 # }

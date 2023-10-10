@@ -1,0 +1,34 @@
+---
+- name: create files and folders
+  hosts: nginx_proxy_manager
+  gather_facts: false
+  tasks:
+    - name: create /mnt/public_files/files
+      file:
+        path: /mnt/public_files/files
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: copy files into /mnt/public_files/files recursively
+      copy:
+        src: ../files/backup/files
+        dest: /mnt/public_files/files
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+    
+    - name: copy docker compose
+      copy:
+        src: ../files/docker/files.docker-compose.yml
+        dest: /home/ubuntu/www/
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+      
+    - name: run docker compose
+      shell: docker-compose -f /home/ubuntu/www/files.docker-compose.yml up -d
+      args:
+        chdir: /home/ubuntu/www/
+        executable: /bin/bash
