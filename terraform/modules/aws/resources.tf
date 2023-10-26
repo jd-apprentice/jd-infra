@@ -3,22 +3,6 @@
 #####
 # AWS
 #####
-resource "aws_instance" "dyallab" {
-  ami                         = var.aws_ami
-  instance_type               = var.aws_instance_type
-  availability_zone           = var.aws_zone
-  subnet_id                   = aws_subnet.dyallab-subnet.id
-  key_name                    = "jonathan@jonathan"
-  associate_public_ip_address = true
-
-  security_groups = [
-    aws_security_group.allow_web.id,
-  ]
-
-  tags = {
-    Name = "dyallab"
-  }
-}
 
 resource "aws_instance" "nginx_proxy_manager" {
   ami                         = var.aws_ami

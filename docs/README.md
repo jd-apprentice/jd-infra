@@ -164,6 +164,11 @@ Read about certbot and revoking [HERE](https://letsencrypt.org/docs/revoking/)
 
 So i'm also going to try the email routing with cloudflare, records are updated in terraform resources.
 
+26/10/2023
+
+Email routing is working
+Shooting myself in the foot with cloudflare + nginx proxy manager, This is gonna take a while to fix.
+
 TL;DR
 
 Don't forget to:
