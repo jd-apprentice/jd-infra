@@ -169,6 +169,11 @@ So i'm also going to try the email routing with cloudflare, records are updated 
 Email routing is working
 Shooting myself in the foot with cloudflare + nginx proxy manager, This is gonna take a while to fix.
 
+Portfolio is now in 2 places
+
+next.jonathan.com.ar -> vercel
+jonathan.com.ar -> ec2
+
 TL;DR
 
 Don't forget to:

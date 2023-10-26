@@ -33,6 +33,7 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 - [ ] Docker apps running on EC2
 - [ ] Grafana/New Relic
 - [ ] Use Watchtower
+- [ ] Use Kong
 - [ ] Lambda functions
 
 ## Work in progress 🧰
