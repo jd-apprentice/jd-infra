@@ -174,6 +174,10 @@ Portfolio is now in 2 places
 next.jonathan.com.ar -> vercel
 jonathan.com.ar -> ec2
 
+So cloudflare tunnel is added and working, also migrated 2 apps to the ec2 instance which are files.jonathan.com.ar and dolar.jonathan.com.ar
+
+Also deprecated 2 apps which are waifuland.jonathan.com.ar and app.jonathan.com.ar
+
 TL;DR
 
 Don't forget to:

@@ -30,15 +30,13 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 - [x] Use Nginx Proxy Manager
 - [x] SSH access to EC2 / Session Manager
 - [x] Add cloudflare as proxy
-- [ ] Docker apps running on EC2
-- [ ] Grafana/New Relic
-- [ ] Use Watchtower
+- [x] Docker apps running on EC2
+- [ ] Netdata
 - [ ] Use Kong
-- [ ] Lambda functions
 
 ## Work in progress 🧰
 
-![IMG](./design/New_ARQ_4.png)
+![IMG](./design/ARQ_Oct.png)
 
 ## Documentation 📝
 
