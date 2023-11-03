@@ -178,6 +178,10 @@ So cloudflare tunnel is added and working, also migrated 2 apps to the ec2 insta
 
 Also deprecated 2 apps which are waifuland.jonathan.com.ar and app.jonathan.com.ar
 
+02/11/2023
+
+Everything is working fine, I'll will add more things when I want to learn something new for example kong + kinga and maybe netdata
+
 TL;DR
 
 Don't forget to:
