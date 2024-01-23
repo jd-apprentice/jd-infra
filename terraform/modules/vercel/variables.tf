@@ -1,6 +1,6 @@
 variable "domain" {
   type        = string
-  default     = "jonathan.com.ar"
+  default     = "next.jonathan.com.ar"
   description = "Domain name to use for the project"
 }
 

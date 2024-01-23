@@ -31,8 +31,6 @@ I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep t
 - [x] SSH access to EC2 / Session Manager
 - [x] Add cloudflare as proxy
 - [x] Docker apps running on EC2
-- [ ] Netdata
-- [ ] Use Kong
 
 ## Work in progress 🧰
 
