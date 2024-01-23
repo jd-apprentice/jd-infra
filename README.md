@@ -1,10 +1,15 @@
-# jd-infra 🖥 
+# jd-infra 🖥
 
 <p align="center">
   <img width="250" height="250" src="./design/Logo.png">
 </p>
 
 I'm migrating from digital ocean to AWS/Vercel, so I'm using this repo to keep track of my progress, everything I do with my infrastructure will be here, and most of the things are for learning purposes.
+
+### UPDATE ❗❗
+
+1. In december 2023 I stoped using this infraestructure and migrated everything to my own servers, you can check how is going [here](https://github.com/jd-apprentice/jd-server)
+2. I'll will see this repo anyways when I need to implement something similar and you can too!
 
 # Table of Contents 📑
 
