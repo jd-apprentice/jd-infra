@@ -5,6 +5,9 @@ environment ?= dev
 init:
 	cd terraform && terraform init
 
+login:
+	cd terraform && terraform login
+
 upgrade:
 	cd terraform && terraform init -upgrade
 

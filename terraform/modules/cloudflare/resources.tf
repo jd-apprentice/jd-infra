@@ -29,7 +29,7 @@ resource "cloudflare_record" "txt_first" {
   zone_id = var.cloudflare_zone_id
   name    = "awsjonathan.com.ar"
   type    = "TXT"
-  ttl     = "auto"
+  ttl     = 3600
   value   = "amazonses:"
 }
 
@@ -37,7 +37,7 @@ resource "cloudflare_record" "txt_second" {
   zone_id = var.cloudflare_zone_id
   name    = "_dmarc"
   type    = "TXT"
-  ttl     = "auto"
+  ttl     = 3600
   value   = "v=DMARC1;  p=none; rua=mailto:8f2017204af7480b9c8599b9aee007e5@dmarc-reports.cloudflare.net"
 }
 
@@ -46,7 +46,7 @@ resource "cloudflare_record" "txt_third" {
   zone_id = var.cloudflare_zone_id
   name    = "jonathan.com.ar"
   type    = "TXT"
-  ttl     = "3600"
+  ttl     = 3600
   value   = "v=spf1 include:_spf.mx.cloudflare.net ~all"
 }
 
@@ -54,7 +54,6 @@ resource "cloudflare_record" "blog" {
   zone_id = var.cloudflare_zone_id
   name    = "blog.jonathan.com.ar"
   type    = "CNAME"
-  ttl     = "auto"
   value   = "hashnode.network"
 }
 
@@ -62,7 +61,6 @@ resource "cloudflare_record" "html" {
   zone_id = var.cloudflare_zone_id
   name    = "html.jonathan.com.ar"
   type    = "CNAME"
-  ttl     = "auto"
   value   = "jd-apprentice.github.io"
 }
 
@@ -70,7 +68,6 @@ resource "cloudflare_record" "dbn_tools" {
   zone_id = var.cloudflare_zone_id
   name    = "dbn-tools.jonathan.com.ar"
   type    = "CNAME"
-  ttl     = "auto"
   value   = "jd-apprentice.github.io"
 }
 
@@ -144,7 +141,7 @@ resource "cloudflare_access_application" "logs_app" {
   auto_redirect_to_identity = false
 }
 
-resource "cloudflare_access_application" "shared_app/imagenes" {
+resource "cloudflare_access_application" "shared_app_imagenes" {
   zone_id                   = var.cloudflare_zone_id
   name                      = "Shared_Imagenes"
   domain                    = "shared.jonathan.com.ar/imagenes"
@@ -162,16 +159,16 @@ resource "cloudflare_access_application" "ssh_app" {
   auto_redirect_to_identity = false
 }
 
-resource "cloudflare_acess_group" "Admins" {
+resource "cloudflare_access_group" "Admins" {
   zone_id = var.cloudflare_zone_id
   name    = "Admins"
 
   include {
-    email = var.cloudflare_admin_email
+    email = [var.cloudflare_admin_email]
   }
 }
 
-resource "cloudflare_acess_group" "Friends" {
+resource "cloudflare_access_group" "Friends" {
   zone_id = var.cloudflare_zone_id
   name    = "Friends"
 
@@ -180,10 +177,13 @@ resource "cloudflare_acess_group" "Friends" {
   }
 }
 
-resource "cloudflare_acess_group" "Warp" {
-  zone_id        = var.cloudflare_zone_id
-  name           = "Warp"
-  device_posture = ["warp_enabled"]
+resource "cloudflare_access_group" "Warp" {
+  zone_id = var.cloudflare_zone_id
+  name    = "Warp"
+
+  include {
+    device_posture = ["warp_enabled"]
+  }
 }
 
 resource "cloudflare_tunnel" "homelab" {
