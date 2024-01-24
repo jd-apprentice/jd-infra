@@ -9,7 +9,7 @@ resource "vercel_project" "portfolio-jd" {
 
 resource "vercel_project_domain" "portfolio-domain" {
   project_id = vercel_project.portfolio-jd.id
-  domain     = var.domain
+  domain     = var.vercel_domain
 }
 data "vercel_project_directory" "portfolio-path" {
   path = "modules/vercel/app"

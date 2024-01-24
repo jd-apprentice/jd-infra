@@ -144,7 +144,7 @@ resource "cloudflare_access_application" "logs_app" {
   auto_redirect_to_identity = false
 }
 
-resource "cloudflare_access_application" "shared_app/imagenes" {
+resource "cloudflare_access_application" "shared_app_imagenes" {
   zone_id                   = var.cloudflare_zone_id
   name                      = "Shared_Imagenes"
   domain                    = "shared.jonathan.com.ar/imagenes"

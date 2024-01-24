@@ -39,10 +39,3 @@ variable "cloudflare_tunnel_name" {
   default     = ""
   sensitive   = false
 }
-
-variable "vercel_ip" {
-  description = "Vercel IP"
-  type        = string
-  default     = "76.76.21.21"
-  sensitive   = false
-}
