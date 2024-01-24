@@ -36,24 +36,24 @@ module "cloudflare" {
 
 ## AWS
 
-variable "aws_region" {
-  description = "aws region"
-  type        = string
-  default     = "us-east-1"
-}
+# variable "aws_region" {
+#   description = "aws region"
+#   type        = string
+#   default     = "us-east-1"
+# }
 
-variable "aws_public_ssh_key" {}
-variable "allowed_ip" {}
+# variable "aws_public_ssh_key" {}
+# variable "allowed_ip" {}
 
-module "aws" {
-  source = "./modules/aws"
+# module "aws" {
+#   source = "./modules/aws"
 
-  aws_region         = var.aws_region
-  aws_public_ssh_key = var.aws_public_ssh_key
-  allowed_ip         = var.allowed_ip
-}
+#   aws_region         = var.aws_region
+#   aws_public_ssh_key = var.aws_public_ssh_key
+#   allowed_ip         = var.allowed_ip
+# }
 
-output "instance_public_dns" {
-  value       = module.aws.instance_public_dns
-  description = "Public DNS of the instance"
-}
+# output "instance_public_dns" {
+#   value       = module.aws.instance_public_dns
+#   description = "Public DNS of the instance"
+# }
