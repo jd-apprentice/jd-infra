@@ -1,18 +1,18 @@
 ## Vercel
 
-variable "vercel_token" {}
-variable "vercel_domain" {
-  type        = string
-  default     = "next.jonathan.com.ar"
-  description = "Domain to be used in vercel"
-}
+# variable "vercel_token" {}
+# variable "vercel_domain" {
+#   type        = string
+#   default     = "next.jonathan.com.ar"
+#   description = "Domain to be used in vercel"
+# }
 
-module "vercel" {
-  source = "./modules/vercel"
+# module "vercel" {
+#   source = "./modules/vercel"
 
-  vercel_domain = var.vercel_domain
-  vercel_token  = var.vercel_token
-}
+#   vercel_domain = var.vercel_domain
+#   vercel_token  = var.vercel_token
+# }
 
 ## Cloudflare
 
